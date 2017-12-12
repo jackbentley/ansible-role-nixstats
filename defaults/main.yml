@@ -1,0 +1,53 @@
+---
+nixstats_user_token: mytoken
+
+nixstats_max_data_span: 60
+nixstats_max_data_age: 600
+nixstats_logging_level: 30
+nixstats_threads: 100
+nixstats_interval: 60
+
+nixstats_cpu: yes
+nixstats_cpu_interval: 1
+
+nixstats_diskusage: yes
+
+nixstats_iostat: yes
+nixstats_iostat_interval: 1
+
+nixstats_loadavg: yes
+
+nixstats_memory: yes
+
+nixstats_network: yes
+nixstats_network_interval: 1
+
+nixstats_ping: yes
+nixstats_ping_hosts: api.nixstats.com,sgp.nixstats.com,ams.nixstats.com,bhs.nixstats.com
+
+nixstats_process: yes
+
+nixstats_swap: yes
+
+nixstats_system: yes
+
+nixstats_mongodb: false
+nixstats_mongodb_connection_string: mongodb://username:password@127.0.0.1:27017/admin
+
+nixstats_httpd: false
+# status page URL must include ?auto at the end
+nixstats_httpd_status_page_url: http://127.0.0.1/server-status?auto
+
+nixstats_nginx: false
+nixstats_php_fpm_nginx_page_url: http://127.0.0.1:8080/status_page
+
+nixstats_php_fpm: false
+nixstats_php_fpm_status_page_url: http://127.0.0.1:8080/status_phpfpm?json
+
+nixstats_mysql: false
+nixstats_mysql_username: mysqluser
+nixstats_mysql_password: mysqlpassword
+nixstats_mysql_host: 127.0.0.1
+nixstats_mysql_database: mysql
+nixstats_mysql_port: 3306
+nixstats_mysql_socket: ~

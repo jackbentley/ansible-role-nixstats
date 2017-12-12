@@ -1,0 +1,20 @@
+---
+- name: Download nixstatsagent.sh
+  get_url:
+    url: https://www.nixstats.com/nixstatsagent.sh
+    dest: /tmp/nixstatsagent.sh
+    mode: 0544
+
+- name: Run nixstatsagent.sh installer
+  shell: ./nixstatsagent.sh {{ nixstats_user_token }}
+  args:
+    chdir: /tmp/
+
+- name: Write nixstats config file
+  template:
+    src: nixstats.ini.j2
+    dest: /etc/nixstats.ini
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart nixstatsagent

@@ -1,0 +1,76 @@
+[DEFAULT]
+max_data_span = {{ nixstats_max_data_span }}
+max_data_age = {{ nixstats_max_data_age }}
+logging_level = {{ nixstats_logging_level }}
+threads = {{ nixstats_threads }}
+interval = {{ nixstats_interval }}
+
+[cpu]
+interval = {{ nixstats_cpu_interval }}
+enabled = {{ nixstats_cpu }}
+
+[diskusage]
+enabled = {{ nixstats_diskusage }}
+
+[iostat]
+interval = {{ nixstats_iostat_interval }}
+enabled = {{ nixstats_iostat }}
+
+[loadavg]
+enabled = {{ nixstats_loadavg }}
+
+[memory]
+enabled = {{ nixstats_memory }}
+
+[network]
+interval = {{ nixstats_network_interval }}
+enabled = {{ nixstats_network }}
+
+[ping]
+enabled = {{ nixstats_ping }}
+hosts = {{ nixstats_ping_hosts }}
+
+[process]
+enabled = {{ nixstats_process }}
+
+[swap]
+enabled = {{ nixstats_swap }}
+
+[system]
+enabled = {{ nixstats_system }}
+
+{% if nixstats_mongodb %}
+[mongodb]
+enabled = yes
+connection_string = {{ nixstats_mongodb_connection_string }}
+{% endif %}
+
+{% if nixstats_httpd %}
+; status page URL must inclde ?auto at the end
+[httpd]
+enabled = yes
+status_page_url = {{ nixstats_httpd_status_page_url }}
+{% endif %}
+
+{% if nixstats_nginx %}
+[nginx]
+enabled = yes
+status_page_url = {{ nixstats_php_fpm_nginx_page_url }}
+{% endif %}
+
+{% if nixstats_php_fpm %}
+[phpfpm]
+enabled = yes
+status_page_url = {{ nixstats_php_fpm_status_page_url }}
+{% endif %}
+
+{% if nixstats_mysql %}
+[mysql]
+enabled=yes
+username={{ nixstats_mysql_username }}
+password={{ nixstats_mysql_password }}
+host={{ nixstats_mysql_host }}
+database={{ nixstats_mysql_database }}
+port={{ nixstats_mysql_port }}
+socket={{ nixstats_mysql_socket }}
+{% endif %}

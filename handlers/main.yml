@@ -1,0 +1,3 @@
+---
+- name: restart nixstatsagent
+  service: name=nixstatsagent state=restarted
